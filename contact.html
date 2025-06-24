@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Bareilly Temple Tourism</title>
+  <link rel="stylesheet" href="contact.css" />
+  <style>
+    /* Comment Display Styles */
+    #commentsSection {
+      margin-top: 30px;
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .comment {
+      background-color: white;
+      padding: 10px 15px;
+      border-left: 4px solid #2980b9;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .comment strong {
+      display: block;
+      color: #2c3e50;
+      margin-bottom: 4px;
+    }
+
+    .comment p {
+      color: #555;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="top-bar">
+    <p>📞 8191049258 | ✉️ shivamsonu2001@gmail.com</p>
+  </header>
+
+  <main class="contact-container">
+    <h1>Contact Us</h1>
+    <p>Do you have any questions about Bareilly's temples or our tourism posts? Please send your message below, and we
+      will respond promptly.</p>
+
+    <form id="contactForm">
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" placeholder="E.g. John Doe" required />
+
+      <label for="phone">Phone *</label>
+      <input type="tel" id="phone" name="phone" placeholder="E.g. +91 9876543210" maxlength="15" required />
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="E.g. john@doe.com" required />
+
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Comments will show here -->
+    <div id="commentsSection">
+      <h3 style="color:#34495e; margin-bottom: 10px;">Visitor Comments</h3>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>📍 Bareilly City, Civil Lines, Bareilly, Uttar Pradesh 243001, India</p>
+    <p>📞 8191049258 | ✉️ shivamsonu2001@gmail.com</p>
+    <p>© 2025 Bareilly Tourism Board. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const commentsSection = document.getElementById("commentsSection");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (name && message) {
+        localStorage.setItem(
+          "name", name)
+        localStorage.setItem("message", message)
+        const comment = document.createElement("div");
+        comment.className = "comment";
+        comment.innerHTML = `
+          <strong>${name}</strong>
+          <p>${message}</p>
+        `;
+        commentsSection.appendChild(comment);
+
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

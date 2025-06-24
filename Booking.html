@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car & Hotel Booking - Bareilly Tourism</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #dec4b3;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(242, 189, 76, 0.1);
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .links a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .links a:hover {
+      background-color: #218838;
+    }
+    h2 {
+      color: #004080;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Car & Hotel Booking</h1>
+    <p>Find your ride and stay in Bareilly easily!</p>
+  </header>
+
+  <div class="container">
+    <div class="section">
+      <h2>Book a Cab</h2>
+      <label for="pickup">Pickup Location:</label>
+      <input type="text" id="pickup" placeholder="Enter pickup location" />
+
+      <label for="drop">Drop Location:</label>
+      <input type="text" id="drop" placeholder="Enter drop location" />
+
+      <label for="time">Pickup Time:</label>
+      <input type="datetime-local" id="time" />
+
+      <button onclick="bookCab()">Submit Cab Booking</button>
+    </div>
+
+    <div class="section">
+      <h2>Book a Hotel</h2>
+      <label for="hotel-name">Hotel Name:</label>
+      <input type="text" id="hotel-name" placeholder="Enter hotel name" />
+
+      <label for="checkin">Check-In Date:</label>
+      <input type="date" id="checkin" />
+
+      <label for="checkout">Check-Out Date:</label>
+      <input type="date" id="checkout" />
+
+      <button onclick="bookHotel()">Submit Hotel Booking</button>
+    </div>
+
+    <!-- Cab Booking Links -->
+    <div class="section links">
+      <h2>Cab Booking Links</h2>
+      <a href="https://www.uber.com/in/en/" target="_blank" rel="noopener noreferrer">Book with Uber</a>
+      <a href="https://www.olacabs.com/" target="_blank" rel="noopener noreferrer">Book with Ola</a>
+      <a href="https://www.rapido.bike/" target="_blank" rel="noopener noreferrer">Book with Rapido</a>
+    </div>
+
+    <!-- Hotel Booking Links -->
+    <div class="section links">
+      <h2>Hotel Booking Links</h2>
+      <a href="https://www.booking.com/" target="_blank" rel="noopener noreferrer">Book Hotels on Booking.com</a>
+      <a href="https://www.makemytrip.com/hotels/" target="_blank" rel="noopener noreferrer">Book Hotels on MakeMyTrip</a>
+      <a href="https://www.oyorooms.com/" target="_blank" rel="noopener noreferrer">Book Hotels on OYO</a>
+    </div>
+  </div>
+
+  <script>
+    function bookCab() {
+      const pickup = document.getElementById('pickup').value.trim();
+      const drop = document.getElementById('drop').value.trim();
+      const time = document.getElementById('time').value;
+
+      if (!pickup || !drop || !time) {
+        alert('Please fill all cab booking details.');
+      } else {
+        alert(`Cab booked from ${pickup} to ${drop} at ${time}.`);
+      }
+    }
+
+    function bookHotel() {
+      const hotel = document.getElementById('hotel-name').value.trim();
+      const checkin = document.getElementById('checkin').value;
+      const checkout = document.getElementById('checkout').value;
+
+      if (!hotel || !checkin || !checkout) {
+        alert('Please fill all hotel booking details.');
+      } else {
+        alert(`Hotel "${hotel}" booked from ${checkin} to ${checkout}.`);
+      }
+    }
+  </script>
+</body>
+</html>
